@@ -1,0 +1,1085 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://uow-cpc.github.io/SSE-Documentation/start/Deployment/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.1">
+    
+    
+      
+        <title>Deployment - SSE Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e8d9bf0c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#00bdd6">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="cyan" data-md-color-accent="blue">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sse-deployment" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="SSE Documentation" class="md-header__button md-logo" aria-label="SSE Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SSE Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Deployment
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Getting Started
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SSE Documentation" class="md-nav__button md-logo" aria-label="SSE Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    SSE Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Getting Started</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Algorithms/" class="md-nav__link">
+        Algorithms
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Implementation/" class="md-nav__link">
+        Implementation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Deployment
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Deployment
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-sse-service-with-docker-compose" class="md-nav__link">
+    Deployment SSE service with docker-compose
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment SSE service with docker-compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-preliminaries" class="md-nav__link">
+    0. Preliminaries
+  </a>
+  
+    <nav class="md-nav" aria-label="0. Preliminaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-create-an-instance-from-either-aws-or-azure" class="md-nav__link">
+    0.1 Create an instance from either AWS or Azure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-docker-installation" class="md-nav__link">
+    0.2 docker installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-docker-compose-installation" class="md-nav__link">
+    0.3 docker-compose installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-dns-optional" class="md-nav__link">
+    0.4 DNS (Optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-get-the-docker-compose-definition-from-the-repository" class="md-nav__link">
+    1.  Get the docker-compose definition from the repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configure-the-environmental-variables" class="md-nav__link">
+    2. Configure the environmental variables
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Configure the environmental variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-for-speed-up-the-environmental-variables-configuration-you-can-do-the-following" class="md-nav__link">
+    2.1 For speed up the environmental variables configuration, you can do the following.
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 For speed up the environmental variables configuration, you can do the following.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-if-you-dont-want-to-create-a-tls-layer-for-sse-service-then-do-the-following-steps" class="md-nav__link">
+    2.1.1 If you don't want to create a TLS layer for SSE service, then do the following steps.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-if-you-want-to-create-a-tls-layer-for-sse-servic-do-the-following-steps" class="md-nav__link">
+    2.1.2 If you want to create a TLS layer for SSE servic, do the following steps.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-build-the-docker-images" class="md-nav__link">
+    3. Build the docker images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#41-run-sse-service-with-docker-compose-without-tlsyml" class="md-nav__link">
+    4.1 Run SSE service with docker-compose-without-tls.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-run-sse-service-with-docker-compose-tlsyml" class="md-nav__link">
+    4.2 Run SSE service with docker-compose-tls.yml
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 Run SSE service with docker-compose-tls.yml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421-update-the-certbot-entry-in-docker-compose-tlsyml-with-email-and-domain" class="md-nav__link">
+    4.2.1 Update the certbot entry in ‘docker-compose-tls.yml’ with email and domain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422-update-the-nginxhttp-file-with-the-domain-name" class="md-nav__link">
+    4.2.2 Update the 'nginx.http' file with the domain name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423-run-the-sse-service" class="md-nav__link">
+    4.2.3 Run the SSE service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#424-update-the-nginxhttps-file-with-the-domain-name" class="md-nav__link">
+    4.2.4 Update the ‘nginx.https’ file with the domain name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#425-restart-the-nginx-service" class="md-nav__link">
+    4.2.5 Restart the Nginx service
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-sse-service-using-micado" class="md-nav__link">
+    Deployment SSE service using MiCADO
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment SSE service using MiCADO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-preliminaries_1" class="md-nav__link">
+    0. Preliminaries
+  </a>
+  
+    <nav class="md-nav" aria-label="0. Preliminaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-micado-installation" class="md-nav__link">
+    0.1 MiCADO installation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-deployment-using-micado" class="md-nav__link">
+    1. Deployment using MiCADO
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Testing/" class="md-nav__link">
+        Testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Others/" class="md-nav__link">
+        Others
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-sse-service-with-docker-compose" class="md-nav__link">
+    Deployment SSE service with docker-compose
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment SSE service with docker-compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-preliminaries" class="md-nav__link">
+    0. Preliminaries
+  </a>
+  
+    <nav class="md-nav" aria-label="0. Preliminaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-create-an-instance-from-either-aws-or-azure" class="md-nav__link">
+    0.1 Create an instance from either AWS or Azure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02-docker-installation" class="md-nav__link">
+    0.2 docker installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-docker-compose-installation" class="md-nav__link">
+    0.3 docker-compose installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#04-dns-optional" class="md-nav__link">
+    0.4 DNS (Optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-get-the-docker-compose-definition-from-the-repository" class="md-nav__link">
+    1.  Get the docker-compose definition from the repository
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configure-the-environmental-variables" class="md-nav__link">
+    2. Configure the environmental variables
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Configure the environmental variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-for-speed-up-the-environmental-variables-configuration-you-can-do-the-following" class="md-nav__link">
+    2.1 For speed up the environmental variables configuration, you can do the following.
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 For speed up the environmental variables configuration, you can do the following.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-if-you-dont-want-to-create-a-tls-layer-for-sse-service-then-do-the-following-steps" class="md-nav__link">
+    2.1.1 If you don't want to create a TLS layer for SSE service, then do the following steps.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-if-you-want-to-create-a-tls-layer-for-sse-servic-do-the-following-steps" class="md-nav__link">
+    2.1.2 If you want to create a TLS layer for SSE servic, do the following steps.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-build-the-docker-images" class="md-nav__link">
+    3. Build the docker images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#41-run-sse-service-with-docker-compose-without-tlsyml" class="md-nav__link">
+    4.1 Run SSE service with docker-compose-without-tls.yml
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-run-sse-service-with-docker-compose-tlsyml" class="md-nav__link">
+    4.2 Run SSE service with docker-compose-tls.yml
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 Run SSE service with docker-compose-tls.yml">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#421-update-the-certbot-entry-in-docker-compose-tlsyml-with-email-and-domain" class="md-nav__link">
+    4.2.1 Update the certbot entry in ‘docker-compose-tls.yml’ with email and domain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#422-update-the-nginxhttp-file-with-the-domain-name" class="md-nav__link">
+    4.2.2 Update the 'nginx.http' file with the domain name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#423-run-the-sse-service" class="md-nav__link">
+    4.2.3 Run the SSE service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#424-update-the-nginxhttps-file-with-the-domain-name" class="md-nav__link">
+    4.2.4 Update the ‘nginx.https’ file with the domain name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#425-restart-the-nginx-service" class="md-nav__link">
+    4.2.5 Restart the Nginx service
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-sse-service-using-micado" class="md-nav__link">
+    Deployment SSE service using MiCADO
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment SSE service using MiCADO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0-preliminaries_1" class="md-nav__link">
+    0. Preliminaries
+  </a>
+  
+    <nav class="md-nav" aria-label="0. Preliminaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-micado-installation" class="md-nav__link">
+    0.1 MiCADO installation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-deployment-using-micado" class="md-nav__link">
+    1. Deployment using MiCADO
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="sse-deployment">SSE Deployment</h1>
+<p>SSE service could be deployed by both docker-compose and MiCADO.</p>
+<h2 id="deployment-sse-service-with-docker-compose">Deployment SSE service with docker-compose</h2>
+<p>It is possible to deploy all the SSE components on a single host using docker-compose. The following part describes how to do that.</p>
+<h3 id="0-preliminaries">0. Preliminaries</h3>
+<h4 id="01-create-an-instance-from-either-aws-or-azure">0.1 Create an instance from either AWS or Azure</h4>
+<p>For instance, you could select <em>Instance Image</em> &amp; <em>Instance Type</em> as "Ubuntu Server 20.04 LTS" and "t2.micro" on AWS respectively.</p>
+<h4 id="02-docker-installation">0.2 docker installation</h4>
+<p>SSH to the instance that you created in #0.1 and execute the following commands to install docker.</p>
+<pre><code>1. sudo apt-get update    
+2. sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+3. curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+4. sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+5. sudo apt update
+6. sudo apt install docker-ce docker-ce-cli containerd.io
+7. sudo systemctl status docker
+</code></pre>
+<h4 id="03-docker-compose-installation">0.3 docker-compose installation</h4>
+<p>SSH to the instance that you created in #0.1 and execute the following commands to install docker-compose.</p>
+<p>Install the old version of docker-compose:</p>
+<pre><code>1. sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+2. sudo chmod +x /usr/local/bin/docker-compose
+3. docker-compose --version
+</code></pre>
+<p>Install the up-to-date version of docker compose:</p>
+<pre><code>1. mkdir -p ~/.docker/cli-plugins/
+2. curl -SL https://github.com/docker/compose/releases/download/v2.3.3/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
+3. chmod +x ~/.docker/cli-plugins/docker-compose
+4. sudo chown $USER /var/run/docker.sock
+5. docker compose version
+</code></pre>
+<p>Note that you could install any docker-compose version. The following part of this chapter uses the old docker-compose version. If you install the up-to-date version, few following commands may slightly different, such as <code>docker compose up -d</code> instead of <code>docker-compose up -d</code>.  </p>
+<h4 id="04-dns-optional">0.4 DNS (Optional)</h4>
+<p>If you would like to deploy a TLS layer in SSE service, you must set up DNS. </p>
+<p>For instance, you will achieve a public ip address (i.e. 18.134.94.206) once you finish #0.1.  </p>
+<p>Then, go to <a href="https://cloud.digitalocean.com/networking/domains">digitalocean</a> and bind your domain name with the public ip address.
+<img alt="DNS.png" src="../../Fig/DNS.png" /></p>
+<h3 id="1-get-the-docker-compose-definition-from-the-repository">1.  Get the docker-compose definition from the repository</h3>
+<pre><code>git clone https://gitlab.com/asclepios-project/sse-deployment
+</code></pre>
+<p>Two docker-compose files could be achieved, namely "docker-compose-without-tls.yml" and "docker-compose-tls.yml".   </p>
+<p>The "docker-compose-without-tls.yml" file involves the definitions of the SSE server, SSE TA, SSE client, MinIO Server, and TEEP deployer server. While, the "docker-compose-tls.yml" file involves the definitions of the SSE server, SSE TA, SSE client, certbot, ta-proxy (Nginx), MinIO Server, and TEEP deployer server. If you do not need to use SGX for SSE TA, and/or use MinIO Server, you can customize the docker-compose file by removing teep-server and/or minio definitions.    </p>
+<p>The main difference between these two files is that "docker-compose-tls.yml" adds a TLS layer in order to increase security level on SSE TA.</p>
+<h3 id="2-configure-the-environmental-variables">2. Configure the environmental variables</h3>
+<pre><code>cd sse-deployment
+</code></pre>
+<p>If using SGX at SSE TA:</p>
+<pre><code>cp template_sgx.env .env
+</code></pre>
+<p>If not using SGX at SSE TA:</p>
+<pre><code>cp template_nonsgx.env .env
+</code></pre>
+<p>Edit the .env file to modify the configurations and more details could be found in <a href="https://gitlab.com/asclepios-project/ssemanual/-/blob/develop/SSE_deployment_manual.pdf">SSE_deployment_manual</a>.</p>
+<h4 id="21-for-speed-up-the-environmental-variables-configuration-you-can-do-the-following">2.1 For speed up the environmental variables configuration, you can do the following.</h4>
+<h5 id="211-if-you-dont-want-to-create-a-tls-layer-for-sse-service-then-do-the-following-steps">2.1.1 If you don't want to create a TLS layer for SSE service, then do the following steps.</h5>
+<pre><code>nano example-without-tls.env
+</code></pre>
+<p>Then, change the following variables to your own environmental variables.</p>
+<pre><code>TA_ALLOWED_HOSTS="YOUR_INSTANCE_PUBLIC_IP_ADDRESS ta"
+SSE_SERVER_ALLOWED_HOSTS="YOUR_INSTANCE_PUBLIC_IP_ADDRESS sse"
+MINIO_URL=YOUR_INSTANCE_PUBLIC_IP_ADDRESS:9000
+SSE_CLIENT_ALLOWED_HOSTS="YOUR_INSTANCE_PUBLIC_IP_ADDRESS client"
+SSE_CLIENT_TA_URL=http://YOUR_INSTANCE_PUBLIC_IP_ADDRESS:8000
+SSE_CLIENT_SSE_URL=http://YOUR_INSTANCE_PUBLIC_IP_ADDRESS:8080
+SSE_CLIENT_CP_ABE_URL=http://YOUR_INSTANCE_PUBLIC_IP_ADDRESS:8084
+</code></pre>
+<p>Once it's finished, execute the following command.</p>
+<pre><code>mv example-without-tls.env .env
+</code></pre>
+<h5 id="212-if-you-want-to-create-a-tls-layer-for-sse-servic-do-the-following-steps">2.1.2 If you want to create a TLS layer for SSE servic, do the following steps.</h5>
+<pre><code>nano example-with-tls.env
+</code></pre>
+<p>Then, change the following variables to your own environmental variables.</p>
+<pre><code>TA_ALLOWED_HOSTS="YOUR_DOMAIN_NAME ta"
+SSE_SERVER_ALLOWED_HOSTS="YOUR_INSTANCE_PUBLIC_IP_ADDRESS sse"
+SSE_SERVER_TA_SERVER=https://YOUR_DOMAIN_NAME:443
+MINIO_URL=YOUR_INSTANCE_PUBLIC_IP_ADDRESS:9000
+SSE_CLIENT_ALLOWED_HOSTS="YOUR_INSTANCE_PUBLIC_IP_ADDRESS client"
+SSE_CLIENT_TA_URL=https://YOUR_DOMAIN_NAME:443
+SSE_CLIENT_SSE_URL=http://YOUR_INSTANCE_PUBLIC_IP_ADDRESS:8080
+SSE_CLIENT_CP_ABE_URL=http://YOUR_INSTANCE_PUBLIC_IP_ADDRESS:8084
+</code></pre>
+<p>Once it's finished, execute the following command.</p>
+<pre><code>mv example-with-tls.env .env
+</code></pre>
+<h3 id="3-build-the-docker-images">3. Build the docker images</h3>
+<pre><code>sudo docker-compose build
+</code></pre>
+<p><strong>If you just would like to deploy the SSE service, you can skip this part -"Build the docker images".</strong> </p>
+<p>The following part will describe how to run SSE service with "docker-compose-without-tls.yml" (#4.1) and "docker-compose-tls.yml" (#4.2) separately.</p>
+<h3 id="41-run-sse-service-with-docker-compose-without-tlsyml">4.1 Run SSE service with docker-compose-without-tls.yml</h3>
+<p>Rename "docker-compose-without-tls.yml" to "docker-compose.yml"</p>
+<pre><code>mv docker-compose-without-tls.yml docker-compose.yml
+</code></pre>
+<p>Then, start the SSE service.</p>
+<pre><code>docker-compose up
+</code></pre>
+<h3 id="42-run-sse-service-with-docker-compose-tlsyml">4.2 Run SSE service with docker-compose-tls.yml</h3>
+<h4 id="421-update-the-certbot-entry-in-docker-compose-tlsyml-with-email-and-domain">4.2.1 Update the certbot entry in ‘docker-compose-tls.yml’ with email and domain</h4>
+<p>First, edit ‘docker-compose-tls.yml’ with your favourite editor</p>
+<pre><code>nano docker-compose-tls.yml
+</code></pre>
+<p>Scroll down to certbot and modify the --email and -d parameters. Save the file. </p>
+<pre><code>--email YOUR_EMAIL_ADDRESS
+-d YOUR_DOMAIN_NAME
+</code></pre>
+<p>Rename ‘docker-compose-tls.yml’ to ‘docker-compose.yml’</p>
+<pre><code>mv docker-compose-tls.yml docker-compose.yml
+</code></pre>
+<h4 id="422-update-the-nginxhttp-file-with-the-domain-name">4.2.2 Update the 'nginx.http' file with the domain name</h4>
+<pre><code>nano nginx.http 
+server_name YOUR_DOMAIN_NAME
+</code></pre>
+<p>Rename ‘nginx.http’ to ‘nginx.conf’</p>
+<pre><code>mv nginx.http nginx.conf
+</code></pre>
+<h4 id="423-run-the-sse-service">4.2.3 Run the SSE service</h4>
+<pre><code>sudo docker-compose up -d
+</code></pre>
+<h4 id="424-update-the-nginxhttps-file-with-the-domain-name">4.2.4 Update the ‘nginx.https’ file with the domain name</h4>
+<pre><code>nano nginx.https
+
+server_name YOUR_DOMAIN_NAME
+/etc/letsencrypt/live/YOUR_DOMAIN_NAME/fullchain.pem; 
+/etc/letsencrypt/live/YOUR_DOMAIN_NAME/privkey.pem;
+</code></pre>
+<p>Rename ‘nginx.conf’ to ‘nginx.http’</p>
+<pre><code>mv nginx.conf nginx.http
+</code></pre>
+<p>Rename ‘nginx.https’ to ‘nginx.conf’</p>
+<pre><code>mv nginx.https nginx.conf
+</code></pre>
+<h4 id="425-restart-the-nginx-service">4.2.5 Restart the Nginx service</h4>
+<pre><code>docker-compose restart ta-proxy
+</code></pre>
+<p><strong>P.S.</strong> If you deploy all the SSE components on a single host, you will need to change SSE client port number (in docker-compose-tls.yml) from (-80:80) to (-81:80) in order to avoid port conflicts with ta-proxy container.</p>
+<h2 id="deployment-sse-service-using-micado">Deployment SSE service using MiCADO</h2>
+<h3 id="0-preliminaries_1">0. Preliminaries</h3>
+<h4 id="01-micado-installation">0.1 MiCADO installation</h4>
+<p>The details of MiCADO installation can be found in <a href="https://micado-scale.readthedocs.io/en/develop/deployment.html">MiCADO installation </a> , but two steps below need to be updated during the installation.</p>
+<p><strong>i. Download the ansible playbook from the develop branch</strong></p>
+<pre><code>git clone https://github.com/micado-scale/ansible-micado
+cd ansible-micado
+git checkout develop
+</code></pre>
+<p><strong>ii. ‘cert-manager.yaml’ and ‘traefik-rbac.yaml’ need to be installed on the MiCADO master before the deployment.</strong></p>
+<p>(1) SSH to MiCADO master node.</p>
+<p>(2) Cope ‘cert-manager.yaml’ and ‘traefik-rbac.yaml’ files to any directory in MiCADO master node.</p>
+<p>(3) Run the commands below.</p>
+<pre><code>sudo kubectl apply -f cert-manager.yaml
+sudo kubectl apply -f traefik-rbac.yaml
+</code></pre>
+<h3 id="1-deployment-using-micado">1. Deployment using MiCADO</h3>
+<p>Four ADT templates (below) could be found in <a href="https://gitlab.com/asclepios-project/sse-deployment">sse-deployment</a>. </p>
+<pre><code>Template_SSE_without_TLS_AWS.yaml
+Template_SSE_without_TLS_Azure.yaml
+Template_SSE_with_TLS_AWS.yaml
+Template_SSE_with_TLS_Azure.yaml
+</code></pre>
+<p>The next step is to configure the ADT file and then run the command on Ansible Remote machine to deploy the SSE service (Some tutorials of how to deploy applications on MiCADO could be find in <a href="https://micado-scale.readthedocs.io/en/latest/tutorials.html">Tutorials</a>).</p>
+<p>For further details, you can also read about the SSE service deployment in <a href="https://gitlab.com/asclepios-project/ssemanual/-/blob/develop/SSE_deployment_manual.pdf">SSE_deployment_manual</a>.</p>
+<p><strong>P.S.</strong> The SSE ADT examples and SSE service test reports could be found in the "ADT examples" folder of <a href="https://gitlab.com/asclepios-project/sse-deployment">sse-deployment</a>.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../Implementation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Implementation" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Implementation
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Testing/" class="md-footer__link md-footer__link--next" aria-label="Next: Testing" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Testing
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8aa65030.min.js"></script>
+      
+    
+  </body>
+</html>
