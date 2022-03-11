@@ -1,0 +1,4 @@
+# Attribute-Based Symmetric Searchable Encryption 
+SSE is an encryption technique that allows users to search directly on their outsourced encrypted data while preserving the privacy of both the files and the queries. Unfortunately, the majority SSE schemes allow users to either decrypt the whole ciphertext or nothing at all. In our SSE scheme, we proposed a new SSE approach based on Attributed-Based Encryption which satisfies Forward Privacy. Therefore, our SSE scheme supports the clients to decrypt parts of encrypted documents without compromising the original data security. Besides, our SSE approach has better performance and more efficience compared with its courterparts.
+
+The details such as Formal Construction of SSE, Forward Privacy, Security Analysis, etc., can be reached in [Attribute-Based Symmetric Searchable Encryption ](https://researchportal.tuni.fi/en/publications/attribute-based-symmetric-searchable-encryption).

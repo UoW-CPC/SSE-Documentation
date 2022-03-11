@@ -1,0 +1,23 @@
+site_name: SSE Documentation
+site_url: https://uow-cpc.github.io/SSE-Documentation
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Getting Started: start/index.md
+      - Algorithms: start/Algorithms.md
+      - Implementation: start/Implementation.md
+      - Deployment: start/Deployment.md
+      - Testing: start/Testing.md
+      - Others: start/Others.md
+theme: 
+   name: material
+   palette:
+     primary: cyan
+     accent: blue
+   features:
+      - navigation.expand
+      - navigation.indexes
+      - navigation.instant
+      - navigation.tabs
+      - navigation.tabs.sticky
+      - navigation.top
