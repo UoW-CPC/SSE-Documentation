@@ -169,20 +169,13 @@ Then, go to [digitalocean](https://cloud.digitalocean.com/networking/domains) an
 ## Deployment SSE service using MiCADO
 ### 0. Preliminaries
 #### 0.1 MiCADO installation
- The details of MiCADO installation can be found in [MiCADO installation ](https://micado-scale.readthedocs.io/en/develop/deployment.html) , but two steps below need to be updated during the installation.
+ The details of MiCADO installation can be found in [MiCADO installation](https://micado-scale.readthedocs.io/en/latest/deployment.html). One additional step is required to support deployment of the SSE scheme:
  
- **i. Download the ansible playbook from the develop branch**
- 
-    git clone https://github.com/micado-scale/ansible-micado
-    cd ansible-micado
-    git checkout develop
-
-
- **ii. ‘cert-manager.yaml’ and ‘traefik-rbac.yaml’ need to be installed on the MiCADO master before the deployment.**
+ **‘cert-manager.yaml’ and ‘traefik-rbac.yaml’ need to be installed on the MiCADO master before the deployment.**
 
  (1) SSH to MiCADO master node.
 
- (2) Cope ‘cert-manager.yaml’ and ‘traefik-rbac.yaml’ files to any directory in MiCADO master node.
+ (2) Copy ‘cert-manager.yaml’ and ‘traefik-rbac.yaml’ files to any directory in MiCADO master node.
 
  (3) Run the commands below.
 
