@@ -982,15 +982,10 @@ server_name YOUR_DOMAIN_NAME
 <h2 id="deployment-sse-service-using-micado">Deployment SSE service using MiCADO</h2>
 <h3 id="0-preliminaries_1">0. Preliminaries</h3>
 <h4 id="01-micado-installation">0.1 MiCADO installation</h4>
-<p>The details of MiCADO installation can be found in <a href="https://micado-scale.readthedocs.io/en/develop/deployment.html">MiCADO installation </a> , but two steps below need to be updated during the installation.</p>
-<p><strong>i. Download the ansible playbook from the develop branch</strong></p>
-<pre><code>git clone https://github.com/micado-scale/ansible-micado
-cd ansible-micado
-git checkout develop
-</code></pre>
-<p><strong>ii. ‘cert-manager.yaml’ and ‘traefik-rbac.yaml’ need to be installed on the MiCADO master before the deployment.</strong></p>
+<p>The details of MiCADO installation can be found in <a href="https://micado-scale.readthedocs.io/en/latest/deployment.html">MiCADO installation</a>. One additional step is required to support deployment of the SSE scheme:</p>
+<p><strong>‘cert-manager.yaml’ and ‘traefik-rbac.yaml’ need to be installed on the MiCADO master before the deployment.</strong></p>
 <p>(1) SSH to MiCADO master node.</p>
-<p>(2) Cope ‘cert-manager.yaml’ and ‘traefik-rbac.yaml’ files to any directory in MiCADO master node.</p>
+<p>(2) Copy ‘cert-manager.yaml’ and ‘traefik-rbac.yaml’ files to any directory in MiCADO master node.</p>
 <p>(3) Run the commands below.</p>
 <pre><code>sudo kubectl apply -f cert-manager.yaml
 sudo kubectl apply -f traefik-rbac.yaml
